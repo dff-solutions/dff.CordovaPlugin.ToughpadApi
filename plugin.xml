@@ -24,12 +24,12 @@
         </config-file>
         
         <source-file src="lib/Toughpad.jar" target-dir="libs" />
-<source-file src="src/android/com/dff/cordova/plugin/toughpadapi/ToughpadApiBarcodeListener.java" target-dir="src/com/dff/cordova/plugin/toughpadapi" />
-<source-file src="src/android/com/dff/cordova/plugin/toughpadapi/action/ToughpadApiAction.java" target-dir="src/com/dff/cordova/plugin/toughpadapi/action" />
-<source-file src="src/android/com/dff/cordova/plugin/toughpadapi/action/GetBarcodeReader.java" target-dir="src/com/dff/cordova/plugin/toughpadapi/action" />
-<source-file src="src/android/com/dff/cordova/plugin/toughpadapi/barcode/model/BarcodeData.java" target-dir="src/com/dff/cordova/plugin/toughpadapi/barcode/model" />
-<source-file src="src/android/com/dff/cordova/plugin/toughpadapi/barcode/model/BarcodeReader.java" target-dir="src/com/dff/cordova/plugin/toughpadapi/barcode/model" />
-<source-file src="src/android/com/dff/cordova/plugin/toughpadapi/ToughpadApiPlugin.java" target-dir="src/com/dff/cordova/plugin/toughpadapi" />
+        <source-file src="src/android/com/dff/cordova/plugin/toughpadapi/ToughpadApiBarcodeListener.java" target-dir="src/com/dff/cordova/plugin/toughpadapi" />
+        <source-file src="src/android/com/dff/cordova/plugin/toughpadapi/action/GetBarcodeReaders.java" target-dir="src/com/dff/cordova/plugin/toughpadapi/action" />
+        <source-file src="src/android/com/dff/cordova/plugin/toughpadapi/action/ToughpadApiAction.java" target-dir="src/com/dff/cordova/plugin/toughpadapi/action" />
+        <source-file src="src/android/com/dff/cordova/plugin/toughpadapi/barcode/model/BarcodeData.java" target-dir="src/com/dff/cordova/plugin/toughpadapi/barcode/model" />
+        <source-file src="src/android/com/dff/cordova/plugin/toughpadapi/barcode/model/BarcodeReader.java" target-dir="src/com/dff/cordova/plugin/toughpadapi/barcode/model" />
+        <source-file src="src/android/com/dff/cordova/plugin/toughpadapi/ToughpadApiPlugin.java" target-dir="src/com/dff/cordova/plugin/toughpadapi" />
         
      </platform>
 </plugin>
