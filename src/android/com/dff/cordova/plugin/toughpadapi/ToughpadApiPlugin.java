@@ -11,7 +11,7 @@ import org.json.JSONException;
 import com.dff.cordova.plugin.common.CommonPlugin;
 import com.dff.cordova.plugin.common.action.CordovaAction;
 import com.dff.cordova.plugin.common.log.CordovaPluginLog;
-import com.dff.cordova.plugin.toughpadapi.action.GetBarcodeReader;
+import com.dff.cordova.plugin.toughpadapi.action.GetBarcodeReaders;
 import com.dff.cordova.plugin.toughpadapi.action.ToughpadApiAction;
 import com.panasonic.toughpad.android.api.ToughpadApi;
 import com.panasonic.toughpad.android.api.ToughpadApiListener;
@@ -24,7 +24,7 @@ public class ToughpadApiPlugin extends CommonPlugin implements ToughpadApiListen
 	public ToughpadApiPlugin() {
 		super();
 		
-		registerAction(GetBarcodeReader.ACTION_NAME, GetBarcodeReader.class);
+		registerAction(GetBarcodeReaders.ACTION_NAME, GetBarcodeReaders.class);
 	}
 	
 	private void registerAction(String name, Class<? extends ToughpadApiAction> action) {

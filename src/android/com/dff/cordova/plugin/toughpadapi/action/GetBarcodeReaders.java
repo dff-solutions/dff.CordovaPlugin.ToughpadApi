@@ -10,10 +10,10 @@ import com.panasonic.toughpad.android.api.barcode.BarcodeException;
 import com.panasonic.toughpad.android.api.barcode.BarcodeReader;
 import com.panasonic.toughpad.android.api.barcode.BarcodeReaderManager;
 
-public class GetBarcodeReader extends ToughpadApiAction {
-	public static final String ACTION_NAME = "getBarcodeReader";
+public class GetBarcodeReaders extends ToughpadApiAction {
+	public static final String ACTION_NAME = "getBarcodeReaders";
 
-	public GetBarcodeReader(String action, JSONArray args, CallbackContext callbackContext, CordovaInterface cordova) {
+	public GetBarcodeReaders(String action, JSONArray args, CallbackContext callbackContext, CordovaInterface cordova) {
 		super(action, args, callbackContext, cordova);
 	}
 
