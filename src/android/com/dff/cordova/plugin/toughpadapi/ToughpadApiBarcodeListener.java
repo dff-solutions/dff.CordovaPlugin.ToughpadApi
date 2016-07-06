@@ -25,7 +25,7 @@ public class ToughpadApiBarcodeListener extends AbstractPluginListener implement
 	}
 	
 	public void destroy() {
-		CordovaPluginLog.d(LOG_TAG, "desctroy");
+		CordovaPluginLog.d(LOG_TAG, "destroy");
 		
 		for (BarcodeReader barcodeReader : BarcodeReaderManager.getBarcodeReaders()) {
 			CordovaPluginLog.d(LOG_TAG, "remove from " + barcodeReader.getDeviceName());
