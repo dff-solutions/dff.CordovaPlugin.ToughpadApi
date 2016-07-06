@@ -1,7 +1,5 @@
 package com.dff.cordova.plugin.toughpadapi;
 
-import java.util.List;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,21 +15,26 @@ public class ToughpadApiBarcodeListener extends AbstractPluginListener implement
 	public static final String LOG_TAG = "dff.cordova.plugin.toughpadapi.ToughpadApiBarcodeListener"; 
 	public static final String ACTION_NAME = "onBarcodeRead";
 	
-	protected List<BarcodeReader> barcodeReaders;
-	
 	public void initialize() {
 		CordovaPluginLog.d(LOG_TAG, "initialize");
-		this.barcodeReaders = BarcodeReaderManager.getBarcodeReaders();
 		
-		for (BarcodeReader barcodeReader : this.barcodeReaders) {
-			CordovaPluginLog.d(LOG_TAG, "initialize " + barcodeReader.getDeviceName());
-			barcodeReader.clearBarcodeListener();
+		for (BarcodeReader barcodeReader : BarcodeReaderManager.getBarcodeReaders()) {
+			CordovaPluginLog.d(LOG_TAG, "listen to " + barcodeReader.getDeviceName());
 			barcodeReader.addBarcodeListener(this);
 		}
 	}
 	
 	public void destroy() {
-		this.callback.success();
+		CordovaPluginLog.d(LOG_TAG, "desctroy");
+		
+		for (BarcodeReader barcodeReader : BarcodeReaderManager.getBarcodeReaders()) {
+			CordovaPluginLog.d(LOG_TAG, "remove from " + barcodeReader.getDeviceName());
+			barcodeReader.removeBarcodeListener(this);
+		}
+		
+		if (this.callback != null) {
+			this.callback.success();
+		}
 	};
 
 	@Override
