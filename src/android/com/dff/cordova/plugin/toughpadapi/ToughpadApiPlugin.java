@@ -1,15 +1,17 @@
 package com.dff.cordova.plugin.toughpadapi;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import com.dff.cordova.plugin.common.CommonPlugin;
 import com.dff.cordova.plugin.common.action.CordovaAction;
-
 import com.dff.cordova.plugin.common.log.CordovaPluginLog;
+import com.dff.cordova.plugin.toughpadapi.action.GetBarcodeReader;
 import com.dff.cordova.plugin.toughpadapi.action.ToughpadApiAction;
 import com.panasonic.toughpad.android.api.ToughpadApi;
 import com.panasonic.toughpad.android.api.ToughpadApiListener;
@@ -21,6 +23,12 @@ public class ToughpadApiPlugin extends CommonPlugin implements ToughpadApiListen
 	
 	public ToughpadApiPlugin() {
 		super();
+		
+		registerAction(GetBarcodeReader.ACTION_NAME, GetBarcodeReader.class);
+	}
+	
+	private void registerAction(String name, Class<? extends ToughpadApiAction> action) {
+		actions.put(name, action);
 	}
 	
    /**
@@ -79,6 +87,32 @@ public class ToughpadApiPlugin extends CommonPlugin implements ToughpadApiListen
     		this.barcodeListener.setCallBack(callbackContext);
     		return true;
     	}
+     	else if (actions.containsKey(action)) {     		
+     		Class<? extends ToughpadApiAction> actionClass = actions.get(action);
+     		
+     		CordovaPluginLog.d(LOG_TAG, "found action: " + actionClass.getName());
+     		
+     		try {
+				cordovaAction = actionClass.getConstructor(String.class
+						, JSONArray.class
+						, CallbackContext.class
+						, CordovaInterface.class
+					)
+					.newInstance(action, args, callbackContext, this.cordova);
+			} catch (InstantiationException e) {
+				CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
+			} catch (IllegalAccessException e) {
+				CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
+			} catch (IllegalArgumentException e) {
+				CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
+			} catch (InvocationTargetException e) {
+				CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
+			} catch (NoSuchMethodException e) {
+				CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
+			} catch (SecurityException e) {
+				CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
+			}
+     	}
 
     	if (cordovaAction != null) {
     		cordova.getThreadPool().execute(cordovaAction);

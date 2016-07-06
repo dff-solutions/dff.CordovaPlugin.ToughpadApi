@@ -11,7 +11,7 @@ var cordova = require('cordova');
 var feature = "ToughpadApi";
 var self = {};
 
-var actions = ["onLog", "onBarcodeRead"];
+var actions = ["onLog", "onBarcodeRead", "getBarcodeReader"];
 
 function createActionFunction (action) {
     return function (success, error, args) {
