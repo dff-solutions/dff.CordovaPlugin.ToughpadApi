@@ -1,5 +1,7 @@
 package com.dff.cordova.plugin.toughpadapi;
 
+import java.util.concurrent.TimeoutException;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,7 +22,16 @@ public class ToughpadApiBarcodeListener extends AbstractPluginListener implement
 		
 		for (BarcodeReader barcodeReader : BarcodeReaderManager.getBarcodeReaders()) {
 			CordovaPluginLog.d(LOG_TAG, "listen to " + barcodeReader.getDeviceName());
-			barcodeReader.addBarcodeListener(this);
+			try {
+				barcodeReader.enable(10000);
+				barcodeReader.addBarcodeListener(this);
+			}
+			catch (BarcodeException e) {
+				CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
+			}
+			catch (TimeoutException e) {
+				CordovaPluginLog.e(LOG_TAG, e.getMessage(), e);
+			}			
 		}
 	}
 	
