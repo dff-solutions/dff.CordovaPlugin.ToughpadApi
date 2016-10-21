@@ -9,7 +9,7 @@ http://business.panasonic.com/support-computerstablets-downloads-sdk
     ionic plugin add https://github.com/dff-solutions/dff.CordovaPlugin.ToughpadApi.git
     
 ## API
-    
+Touchpad JavaScript api is available via global `ToughpadApi`
 
 
 ### onBarcodeRead
