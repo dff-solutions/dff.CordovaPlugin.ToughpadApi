@@ -16,6 +16,9 @@ Touchpad JavaScript api is available via global `ToughpadApi`
 
 ```javascript
 /**
+ * Called when the Barcode Reader has scanned a BarCode,
+ * the decoded data is available in the provided BarcodeData object.
+ *
  * @function
  * @name onBarcodeRead
  * @param {function} success Callback for success
@@ -34,6 +37,8 @@ ToughpadApi
 
 ```javascript
 /**
+ * Get all barcode readers.
+ *
  * @function
  * @name getBarcodeReaders
  * @param {function} success Callback for success
@@ -52,6 +57,8 @@ ToughpadApi
 
 ```javascript
 /**
+ * Power Off/Disconnect the BarcodeReader.
+ *
  * @function
  * @name barcodeReaderDisable
  * @param {function} success Callback for success
@@ -73,6 +80,8 @@ ToughpadApi
 
 ```javascript
 /**
+ * Power On/Connect the BarcodeReader.
+ *
  * @function
  * @name barcodeReaderEnable
  * @param {function} success Callback for success
@@ -94,6 +103,8 @@ ToughpadApi
 
 ```javascript
 /**
+ * This would either press or release the trigger based on the argument.
+ *
  * @function
  * @name barcodeReaderPressSoftwareTrigger
  * @param {function} success Callback for success
@@ -117,6 +128,8 @@ ToughpadApi
 
 ```javascript
 /**
+ * Enables / disables the Hardware Trigger. Does nothing if no hardware trigger is present.
+ *
  * @function
  * @name barcodeReaderSetHardwareTriggerEnabled
  * @param {function} success Callback for success
