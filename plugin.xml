@@ -12,7 +12,7 @@
         <clobbers target="ToughpadApi" />
     </js-module>
     
-    <dependency id="dff-cordova-plugin-common" url="https://github.com/dff-solutions/dff.CordovaPlugin.Common.git#dev" />
+    <dependency id="dff-cordova-plugin-common" url="https://github.com/dff-solutions/dff.CordovaPlugin.Common.git" />
  
     <!-- android -->
     <platform name="android">
