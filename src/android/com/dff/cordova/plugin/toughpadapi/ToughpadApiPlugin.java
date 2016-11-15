@@ -21,7 +21,7 @@ import com.panasonic.toughpad.android.api.ToughpadApi;
 import com.panasonic.toughpad.android.api.ToughpadApiListener;
 
 public class ToughpadApiPlugin extends CommonPlugin implements ToughpadApiListener {
-	private static final String LOG_TAG = "com.dff.cordova.plugin.packagepay.ToughpadApiPlugin";
+	private static final String LOG_TAG = "com.dff.cordova.plugin.toughpadapi.ToughpadApiPlugin";
 	private HashMap<String, Class<? extends ToughpadApiAction>> actions = new HashMap<String, Class<? extends ToughpadApiAction>>();
 	private ToughpadApiBarcodeListener barcodeListener;
 
