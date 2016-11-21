@@ -129,7 +129,7 @@ public class ToughpadApiPlugin extends CommonPlugin implements ToughpadApiListen
 		}
 
 		if (cordovaAction != null) {
-			super.actionHandler.post(cordovaAction);
+			this.cordova.getThreadPool().execute(cordovaAction);
 			return true;
 		}
 
